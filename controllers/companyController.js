@@ -74,9 +74,9 @@ companyController.updateBusinessHour = async(req, res, next)=>{
     if(closingHour){
         businessHour.closingHour = closingHour;
     }
-    if(isClosingDay.toString() === false){
+    if(isClosingDay?.toString() === "false"){
         businessHour.isClosingDay = false;
-    }else{
+    }else if(isClosingDay?.toString() === "true"){
         businessHour.isClosingDay = true;
     }
 

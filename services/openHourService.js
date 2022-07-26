@@ -34,9 +34,9 @@ openHourService.addOrUpdate = async(data, company)=>{
 
         }
 
-        if(data.isClosingDay.toString() === "true"){
+        if(data.isClosingDay?.toString() === "true"){
             businessHour.isClosingDay = true;
-        }else{
+        }else if(data.isClosingDay?.toString() === "false"){
             businessHour.isClosingDay = false;
         }
         businessHour = await businessHour.save();

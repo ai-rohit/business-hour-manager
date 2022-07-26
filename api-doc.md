@@ -2,7 +2,7 @@
 
 <br />
 
-#### ? -> optional, day value accepted -> [0-6];
+#### ? -> optional, day value accepted -> [0-6], openHours -> 00:00 to 23:59
 
 - `login` -> `/api/auth/login`
 
