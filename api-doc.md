@@ -7,7 +7,7 @@
 - `login` -> `/api/auth/login`
 
   - `post` request
-  - `body params` -> email, phone
+  - `body params` -> email, password
 
 - `register` -> `/api/auth/register`
 
@@ -25,6 +25,10 @@
   - `patch` request
   - `header params` -> Authorization -> eg: Bearer <token>
   - `body params` -> name?, address?, phone?, defaultStartingHour?, defaultClosingHour?
+
+- `get all companies` -> `/api/companies`
+
+  - `get` request
 
 - `get company details and hours` -> `/api/companies/:id`
 

@@ -1,0 +1,11 @@
+Tables => User, Company and BusinessHour
+BusinessHour stores the opening and closing hour
+
+User registers->logins->creates company->adds businesshour->manipulates business hours
+
+Business hour logic -> 
+
+if isClosingDay is true then the day is closed
+if the business hour data is present for a day in BusinessHour table use that data else use defaultStarting and closing hour stored in company
+
+if both business hour data and default hour data are missing, specify the day as open 24hrs or not set or anything appropriate

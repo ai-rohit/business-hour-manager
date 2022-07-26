@@ -18,6 +18,14 @@ dbConnector();
 
 app.use("/api", require("./routes"));
 
+
+app.use("*", (req, res, next)=>{
+  return res.status(404).json({
+    status:"fail",
+    message:"API not found"
+  })
+})
+
 app.use((err, req, res, next)=>{
     return res.status(err.statusCode).json({
         status: err.status,
@@ -26,6 +34,7 @@ app.use((err, req, res, next)=>{
 })
 
 const port = process.env.PORT || 4000;
+
 
 app.listen(port, ()=>{
     console.log(`listening to port ${port}`)

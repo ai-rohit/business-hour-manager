@@ -74,8 +74,7 @@ companyController.updateBusinessHour = async(req, res, next)=>{
     if(closingHour){
         businessHour.closingHour = closingHour;
     }
-
-    if(isClosingDay === false){
+    if(isClosingDay.toString() === false){
         businessHour.isClosingDay = false;
     }else{
         businessHour.isClosingDay = true;
@@ -83,6 +82,11 @@ companyController.updateBusinessHour = async(req, res, next)=>{
 
     businessHour = await businessHour.save();
     return res.status(200).json(businessHour);
+}
+
+companyController.getCompanies = async(req, res, next)=>{
+    const companies = await companyService.findAll();
+    return res.status(200).json(companies);
 }
 
 companyController.getCompanyDetail = async(req, res, next)=>{
@@ -101,4 +105,5 @@ companyController.getCompanyDetail = async(req, res, next)=>{
     }
     return res.status(200).json(company);
 }
+
 module.exports = companyController;
