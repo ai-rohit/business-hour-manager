@@ -89,8 +89,14 @@ module.exports.businessHoursValidator = [
         let isDayValid = true;
         let isHourValid = true;
         let isRepeated = false;
+        let isDayMissing = false;
         let checkedDays= [];
         for(let i = 0; i<value.length; i++){
+            if(!value[i].day?.toString()){
+                console.log(!value[i].day)
+                isDayMissing = true;
+                break;
+            }
             if(!Object.keys(days).includes(value[i].day.toString())){
                 isDayValid =false;
                 break;
@@ -112,6 +118,9 @@ module.exports.businessHoursValidator = [
                 break;
             }
             checkedDays.push(value[i].day);
+        }
+        if(isDayMissing){
+            return Promise.reject('Day value is missing')
         }
         if(!isDayValid){
             return Promise.reject('Invalid value for day')
